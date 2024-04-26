@@ -1,0 +1,42 @@
+# gzip -9 file1
+Поместить файл file1 в архив gzip с максимальной степенью сжатия
+# rar a file1.rar file1 file2 dir1
+Создать rar архив file1.rar, заархивировав файлы: file1, file2 и директорию: dir1
+# rar a file1.rar test_file
+Упаковать в rar архив file1.rar файл test_file
+# rar x file.rar
+Разархивировать rar архив file.rar
+# bzip2 file1
+Сжимает файл file1
+# bunzip2 file1.bz2
+Разжимает файл file1.bz2
+# gzip file1
+Сжимает файл file1
+# gunzip file1.gz
+Разжимает файл file1.gz
+# tar -cvf archive.tar file1 file2 dir1
+Создать tar архив archive.tar, упаковав в него файлы file1, file2 и директорию dir1
+# tar -cvf archive.tar file
+Упаковать в tar-архив archive.tar, файл file
+# tar -tf archive.tar
+Вывести содержимое tar архива
+# tar -xvf archive.tar
+Распаковать tar архив
+# tar -xvf archive.tar -C /tmp
+Распаковать архив в /tmp
+# tar -cvfz archive.tar.gz dir1
+Создать tar архив и сжать его с помощью программы gzip
+# tar -xvfz archive.tar.gz
+Разжать tar архив и распаковать его
+# tar -cvfj archive.tar.bz2 dir1
+Создать архив и сжать его с помощью bzip2 ( ключ -j работает не во всех *nix системах )
+# tar -xvfj archive.tar.bz2
+Разжать архив и распаковать его ( ключ -j работает не во всех *nix системах )
+# zip file1.zip file1
+Создать сжатый zip-архив
+# zip -r file1.zip file1 file2 dir1
+Запаковать в архив несколько файлов и/или директорий
+# unzip file1.zip
+Разжать и распаковать zip-архив
+# unrar x file1.rar
+Распаковать rar-архив

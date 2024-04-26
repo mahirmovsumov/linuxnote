@@ -1,0 +1,34 @@
+# find /var/log -name '*.log' | tar cv --files-from=- | bzip2 > log.tar.bz2
+Поиск всех файлов, заканчивающихся на ".log" в директории /var/log, и упаковка их в bzip-архив
+# find /home/user -name '*.txt' | xargs cp -av --target-directory=/home/backup/ --parents
+Поиск в директории /home/user файлов, имена которых оканчиваются на ".txt", и копирование их в другую директорию
+# rsync -rogpav --delete /home /tmp
+Синхронизировать директории /tmp и /home
+# rsync -az -e ssh --delete ip_addr:/home/public /home/local
+Синхронизировать локальную и удаленную директории через ssh туннель используя сжатие
+# rsync -rogpav -e ssh --delete /home ip_address:/tmp
+Синхронизация через SSH туннель
+# rsync -az -e ssh --delete /home/local ip_addr:/home/public
+Синхронизировать удалённую директорию с локальной используя ssh туннель со сжатием
+# dd bs=1M if=/dev/hda | gzip | ssh user@ip_addr 'dd of=hda.gz'
+Создать "слепок" локального диска в файл на удалённом сервере используя ssh туннель
+# dd if=/dev/hda of=/dev/fd0 bs=512 count=1
+Создание копии MBR ( Master Boot Record ) с /dev/hda на флоппи-диск
+# dd if=/dev/sda of=/tmp/backup
+Создание резервной копии содержимого жесткого диска в файл backup
+# dd if=/dev/fd0 of=/dev/hda bs=512 count=1
+Восстановить MBR с флоппи-диска на /dev/hda
+# dump -0aj -f /tmp/home0.bak /home
+Создать полную резервную копию директории /home в файл /tmp/home0.bak
+# dump -1aj -f /tmp/home0.bak /home
+Создать инкрементную резервную копию директории /home в файл /tmp/home0.bak
+# restore -if /tmp/home0.bak
+Восстановить данные из резервной копии /tmp/home0.bak
+# tar -Puf backup.tar /home/user
+Создать инкрементную резервную копию директории /home/user в файл backup.tar сохраняя права доступа
+# ( cd /tmp/local/ && tar c . ) | ssh -C user@ip_addr 'cd /home/share/ && tar x -p'
+Упаковка в архив и копирование содержимого /tmp/local в директорию /home/share/ удалённого сервера, используя ssh туннель
+# ( tar c /home ) | ssh -C user@ip_addr 'cd /home/backup-home && tar x -p'
+Упаковка в архив и копирование содержимого /home в директорию /home/backup-home удалённого сервера, используя ssh туннель
+# tar cf - . | (cd /tmp/backup ; tar xf - )
+Упаковка в архив и копирование одной директории в другую с сохранением прав доступа и ссылок
